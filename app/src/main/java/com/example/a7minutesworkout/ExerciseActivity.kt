@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
 
 class ExerciseActivity : AppCompatActivity() {
-    private  var binding: com.example.a7minutesworkout.databinding.ActivityExerciseBinding? = null
+    private  var binding: ActivityExerciseBinding? = null
 
    private var restTimer: CountDownTimer? = null
     private var timerDuration: Long = 10000
