@@ -81,6 +81,35 @@
 
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_jumping_jacks"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tvExercise"
+        app:layout_constraintTop_toBottomOf="@id/toolbarExercise"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/tvExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXERCISE NAME"
+        android:textSize="22sp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivImage"
+        tools:visibility="visible">
+
+    </TextView>
+    
     <FrameLayout
         android:id="@+id/flExerciseProgressBar"
         android:layout_width="100dp"
@@ -90,7 +119,7 @@
         tools:visibility="visible"
         android:background="@drawable/item_circular_color_accent_border"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarExercise"
+        app:layout_constraintTop_toBottomOf="@+id/tvExercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
