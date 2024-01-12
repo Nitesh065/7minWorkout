@@ -43,24 +43,30 @@ class ExerciseActivity : AppCompatActivity() {
     }
 
     private fun setupRestView(){
-        binding?.flProgressBar?.visibility = View.VISIBLE
+        binding?.flRestView?.visibility = View.VISIBLE
         binding?.tvTitle?.visibility = View.VISIBLE
+        binding?.tvUpcomingExercise?.visibility = View.VISIBLE
+        binding?.tvUpcomingTitle?.visibility = View.VISIBLE
         binding?.tvExercise?.visibility = View.INVISIBLE
         binding?.ivImage?.visibility = View.INVISIBLE
-        binding?.flExerciseProgressBar?.visibility = View.INVISIBLE
+        binding?.flExerciseView?.visibility = View.INVISIBLE
+
         if (restTimer != null){
             restTimer?.cancel()
             restProgress = 0
         }
+        binding?.tvUpcomingExercise?.text = exerciseList!![currentExercisePosition + 1].getName()
         setRestProgressBar()
     }
 
     private fun setupExerciseView(){
-        binding?.flProgressBar?.visibility = View.INVISIBLE
+        binding?.flRestView?.visibility = View.INVISIBLE
         binding?.tvTitle?.visibility = View.INVISIBLE
+        binding?.tvUpcomingExercise?.visibility = View.INVISIBLE
+        binding?.tvUpcomingTitle?.visibility = View.INVISIBLE
         binding?.tvExercise?.visibility = View.VISIBLE
         binding?.ivImage?.visibility = View.VISIBLE
-        binding?.flExerciseProgressBar?.visibility = View.VISIBLE
+        binding?.flExerciseView?.visibility = View.VISIBLE
 
         if (exerciseTimer != null){
             exerciseTimer?.cancel()
