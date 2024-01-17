@@ -40,12 +40,11 @@ class ExerciseModel(
         this.isCompleted = isCompleted
     }
 
-    fun getIsSelected(): Boolean{
+    fun getIsSelected():Boolean{
         return isSelected
     }
 
-    fun setId(isSelected: Boolean){
+    fun setIsSelected(isSelected: Boolean){
         this.isSelected = isSelected
     }
-
 }
