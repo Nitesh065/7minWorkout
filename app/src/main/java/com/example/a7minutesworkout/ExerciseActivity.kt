@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
 import java.lang.Exception
 import java.util.Locale
@@ -28,6 +29,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tts: TextToSpeech?  = null
 
     private var player: MediaPlayer? = null
+
+    private var exerciseStatusAdapter: ExerciseStatusAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +54,17 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
       setupRestView()
 
+        setupExerciseStatusRecycleView()
+
+
+    }
+
+    private fun setupExerciseStatusRecycleView(){
+        binding?.rvExerciseStatus?.layoutManager =
+            LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+
+        exerciseStatusAdapter = ExerciseStatusAdapter(exerciseList!!)
+        binding?.rvExerciseStatus?.adapter = exerciseStatusAdapter
     }
 
     private fun setupRestView(){
