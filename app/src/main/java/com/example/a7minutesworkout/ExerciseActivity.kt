@@ -1,5 +1,7 @@
 package com.example.a7minutesworkout
 
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
@@ -8,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
+import java.lang.Exception
 import java.util.Locale
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -23,6 +26,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var currentExercisePosition = -1
 
     private var tts: TextToSpeech?  = null
+
+    private var player: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +54,16 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun setupRestView(){
+        try {
+          //  val soundUri = Uri.parse("android.resources://a7minutesworkout/" + R.raw.press_start)
+            player = MediaPlayer.create(applicationContext,R.raw.press_start)
+            player?.isLooping = false
+            player?.start()
+        }
+        catch (e:Exception){
+            e.printStackTrace()
+        }
+
         binding?.flRestView?.visibility = View.VISIBLE
         binding?.tvTitle?.visibility = View.VISIBLE
         binding?.tvUpcomingExercise?.visibility = View.VISIBLE
@@ -61,7 +76,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             restTimer?.cancel()
             restProgress = 0
         }
-        speakOut("Rest ten seconds. Get ready for ${exerciseList!![currentExercisePosition + 1].getName()}")
+
+        //speakOut("Rest ten seconds. Get ready for ${exerciseList!![currentExercisePosition + 1].getName()}")
         binding?.tvUpcomingExercise?.text = exerciseList!![currentExercisePosition + 1].getName()
         setRestProgressBar()
     }
@@ -140,6 +156,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             tts?.shutdown()
             binding = null
         }
+        if (player != null){
+            player!!.stop()
+        }
 
         binding = null
         super.onDestroy()
@@ -147,7 +166,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if(status == TextToSpeech.SUCCESS){
-          val  result = tts!!.setLanguage(Locale.US)
+          val result = tts!!.setLanguage(Locale.US)
 
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
                 Log.e("TTs","The language enter is not sported")
