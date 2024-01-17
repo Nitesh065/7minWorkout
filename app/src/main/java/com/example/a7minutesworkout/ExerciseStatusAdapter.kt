@@ -1,0 +1,26 @@
+package com.example.a7minutesworkout
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.a7minutesworkout.databinding.ItemExerciseStatusBinding
+
+class ExerciseStatusAdapter(val exerciseList: ArrayList<ExerciseModel>):RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
+    class ViewHolder(itemBinding: ItemExerciseStatusBinding):RecyclerView.ViewHolder(itemBinding.root) {
+        val tvItem = itemBinding.tvItem
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(ItemExerciseStatusBinding.inflate(
+            LayoutInflater.from(parent.context),parent,false))
+    }
+
+    override fun getItemCount(): Int {
+        return  exerciseList.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val model: ExerciseModel = exerciseList[position]
+        holder.tvItem.text = model.getId().toString()
+    }
+}
