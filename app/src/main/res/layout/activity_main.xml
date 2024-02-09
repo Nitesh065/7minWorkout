@@ -12,6 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         app:layout_constraintBottom_toTopOf="@id/flStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/img_main_page" />
 
@@ -19,10 +22,10 @@
         android:id="@+id/flStart"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/flBMI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imMainPage"
         android:background="@drawable/item_color_accent_border_ripple_background"
         >
 
@@ -36,4 +39,42 @@
             android:textSize="22sp"
             android:textStyle="bold" />
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/flBMI"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+
+        android:background="@drawable/item_circular_accent_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flStart">
+
+        <TextView
+            android:id="@+id/tvBmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="BMI"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Calculator"
+        android:textSize="22sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flBMI"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+
+    </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>
