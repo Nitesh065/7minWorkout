@@ -142,7 +142,7 @@ class BMI : AppCompatActivity() {
                     val heightInch: String = binding?.etBmiInch?.text.toString()
                     val heightFeet: String = binding?.etBmiFeet?.text.toString()
 
-                    val height: Float = (heightInch.toFloat() + heightFeet.toFloat()) * 12
+                    val height: Float = heightInch.toFloat() + heightFeet.toFloat() * 12
 
                     val bmi = 703 * (weightValuePounds / (height*height))
 
