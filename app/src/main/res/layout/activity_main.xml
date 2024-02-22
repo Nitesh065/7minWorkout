@@ -44,10 +44,9 @@
         android:id="@+id/flBMI"
         android:layout_width="70dp"
         android:layout_height="70dp"
-
         android:background="@drawable/item_circular_accent_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/flHistory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flStart">
 
@@ -69,12 +68,45 @@
         android:textSize="22sp"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/flBMI"
+        app:layout_constraintStart_toStartOf="@id/flBMI"
         app:layout_constraintTop_toBottomOf="@id/flBMI"
         app:layout_constraintBottom_toBottomOf="parent"
-
         >
-
     </TextView>
+
+    <FrameLayout
+        android:id="@+id/flHistory"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/item_circular_accent_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/flBMI"
+        app:layout_constraintTop_toBottomOf="@+id/flStart">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_calendar"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="History"
+        android:textSize="22sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/flHistory"
+        app:layout_constraintStart_toStartOf="@id/flHistory"
+        app:layout_constraintTop_toBottomOf="@id/flHistory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+    </TextView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

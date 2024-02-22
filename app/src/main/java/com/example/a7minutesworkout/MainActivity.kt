@@ -24,6 +24,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,BMI::class.java)
             startActivity(intent)
         }
+        binding.flHistory.setOnClickListener {
+            Toast.makeText(this,"This is the start of the app",Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,History::class.java)
+            startActivity(intent)
+        }
 
     }
 }
